@@ -2,64 +2,83 @@
 
 ///////////=========>>>>> SYNCHRONOUS FUNCTION <<<<<============//////////
 
-console.log("hello !!! let's create an add function");
-function add(a,b) {
-    return a+b;
-}
-console.log(add(3,4));
-console.log("you got the sum")
+// console.log("hello !!! let's create an add function");
+// function add(a,b) {
+//     return a+b;
+// }
+// console.log(add(3,4));
+// console.log("you got the sum")
 
 ///////////=========>>>>> ASYNCHRONOUS FUNCTION <<<<<============//////////
 
 // Call-back
 
-function greetings(cb) {
-    console.log("hello !!!!")
-    cb()
-}
+// function greetings(cb) {
+//     console.log("hello !!!!")
+//     cb()
+// }
 
-function welcome() {
-    console.log("welcome")
-}
-greetings(welcome)
+// function welcome() {
+//     console.log("welcome")
+// }
+// greetings(welcome)
 
 
 //Call-back with Asynchronous Function
 
-console.log("hello dear")
+// console.log("hello dear")
 
-function greetings(){
-    console.log("welcome")
-}
-setTimeout(()=>{
-    greetings()
-},3000)
+// function greetings(){
+//     console.log("welcome")
+// }
+// setTimeout(()=>{
+//     greetings()
+// },3000)
 
 // Timers (setTimeout,clearTimeout,setInterval,clearInterval)
 
 // setTimeout,clearTimeout
 
-function Burger () {
-    console.log("Take Your Burger")
-}
-let int = setTimeout(()=>{
-    Burger()
-},4000)
+// function Burger () {
+//     console.log("Take Your Burger")
+// }
+// let int = setTimeout(()=>{
+//     Burger()
+// },4000)
 
-clearTimeout(int)
+// clearTimeout(int)
 
 // setInterval,clearInterval
 
-function Burger () {
+// function Burger () {
 
-    let bg =  setInterval(() => {
-        console.log("Your Food is On the way")
-    },2000)
+//     let bg =  setInterval(() => {
+//         console.log("Your Food is On the way")
+//     },2000)
 
-  setTimeout(() => {
-    clearInterval(bg)
-    console.log("Your Food is ready")
-},10000)
+//   setTimeout(() => {
+//     clearInterval(bg)
+//     console.log("Your Food is ready")
+// },10000)
+// }
+
+// Burger()
+
+// Promises
+
+function Add (a,b) {
+    let sum = a+b ;
+    return new Promise ((resolve,reject) => {
+        if(sum){
+            setTimeout(() => {
+                resolve(sum)
+            },3000)
+            
+        }else{
+            reject("error occured")
+        }
+    })
 }
-
-Burger()
+Add(5,3).then ((data) => {console.log(data)})
+        .catch ((err) => {console.log(err)})
+        .finally (()=>{console.log("Promise accepted")})
